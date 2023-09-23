@@ -41,6 +41,7 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if joke, ok := jokesapi.FetchJoke(); ok {
 			renderer.RenderJoke(w, joke)
+			log.Println("fetched joke:", joke.Setup, joke.Punchline)
 		} else {
 			log.Println("Using fallback joke due to API error or timeout.")
 			fallback := getFallbackJoke()
