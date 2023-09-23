@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A collection of programming jokes to lighten up your day."
+    />
+    <title>Programming Jokes</title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    {{template "footer.html"}}
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8 joke-card rounded p-4 shadow">
+          <h1 class="display-4 text-center mb-4">Programming Jokes</h1>
+          <p class="lead">{{.Setup}}</p>
+          <p class="lead font-weight-bold">{{.Punchline}}</p>
+          <div class="text-center mt-4 btn-group">
+            <div class="col-12 col-sm-auto px-1">
+              <form action="/" method="get">
+                <button type="submit" class="btn btn-lg btn-primary btn-block">
+                  Get new Joke
+                </button>
+              </form>
+            </div>
+            <div class="col-12 col-sm-auto px-1">
+              <form action="/fallback" method="get">
+                <button
+                  type="submit"
+                  class="btn btn-lg btn-secondary btn-block"
+                >
+                  Get Go Joke
+                </button>
+              </form>
+            </div>
+          </div>
+          {{if .Image}}
+          <img
+            src="{{.Image}}"
+            alt="Funny Programming Joke Image"
+            class="joke-image"
+          />
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
